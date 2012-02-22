@@ -149,7 +149,7 @@ Returns the day of the year (1-366)
   
 `strftime(String format)`  
 This function was created based on ruby's implementation of strftime.  
-You can heck out ruby's implementation [here](http://ruby-doc.org/core-1.9.3/Time.html#method-i-strftime).  
+You can check out ruby's implementation [here](http://ruby-doc.org/core-1.9.3/Time.html#method-i-strftime).  
 There are a few expections though. See below.
 
 ``` javascript
