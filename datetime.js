@@ -147,7 +147,7 @@ DT.UTC = function() {
 DT.distance = function(from, to) { return to.time() - from.time(); };
 
 DT.distanceOfTimeInWords = function(from, to, includeSeconds, locale) {
-  var locale = locale || 'en';
+  var locale = locale || 'en',
       props = null,
       diff = DT.distance(from, to)/1000,
       mins = Math.round(Math.abs(diff/60)),
