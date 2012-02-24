@@ -38,9 +38,10 @@ new DateTime(2000,12,31).strftime('%m/%d/%y');      // 12/31/00
 
 var d1 = new DateTime(2000,1,1);
 var d2 = new DateTime(2000,1,31);
-d1.distanceOfTimeInWordsTo(d2);                     // 'about 1 month from now'
-d2.distanceOfTimeInWordsTo(d1);                     // 'about 1 month ago'
-  
+d1.distanceOfTimeInWordsTo(d2);                     // about 1 month from now
+d2.distanceOfTimeInWordsTo(d1);                     // about 1 month ago
+
+DateTime.distanceOfTimeInWords(d1,d2);              // about 1 month from now
 ```
 
 
