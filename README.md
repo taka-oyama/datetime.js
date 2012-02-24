@@ -19,6 +19,7 @@ DateTime.now();                                     // returns a instance with c
 
 new DateTime(2012,01,01).toUTCString();             // 2011-12-31T15:00:00Z 
                                                     // (interpreted as local time)
+
 DateTime.UTC(2012,01,01).toUTCString();             // 2011-12-31T15:00:00Z 
                                                     // (use DateTime.UTC to interpret as UTC time)
 
@@ -28,6 +29,7 @@ new DateTime('2012-01-01').toUTCString();           // 2012-01-01T00:00:00Z
 new DateTime('2012-12-31T23:59:59Z').toUTCString(); // 2012-12-31T23:59:59Z
 
 new DateTime('2012').isLeap();                      // true
+
 new DateTime(2000,12,31).strftime('%m/%d/%y');      // 12/31/00
 ```
 
