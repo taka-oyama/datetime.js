@@ -2,7 +2,7 @@
 
 datetime.js is a Javascript library that provides a modern way to manipulate dates in place of the `Date` class. 
 
-datetime.js provides the following...
+## List of Main Features
 
 * ISO8601 support
 * stftime from Ruby's Time class
