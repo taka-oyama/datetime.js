@@ -15,12 +15,16 @@ DateTime class included in datetime.js can provide the following.
 
 ## Examples
 ``` javascript
-DateTime.now();                                     // returns a DateTime instance with current local time.
+DateTime.now();                                     // returns a instance with current local time.
 
-new DateTime(2012,01,01).toUTCString();             // 2011-12-31T15:00:00Z (interpreted as local time)
-DateTime.UTC(2012,01,01).toUTCString();             // 2011-12-31T15:00:00Z (use DateTime.UTC to interpret as UTC time)
+new DateTime(2012,01,01).toUTCString();             // 2011-12-31T15:00:00Z 
+                                                    // (interpreted as local time)
+DateTime.UTC(2012,01,01).toUTCString();             // 2011-12-31T15:00:00Z 
+                                                    // (use DateTime.UTC to interpret as UTC time)
 
-new DateTime('2012-01-01').toUTCString();           // 2012-01-01T00:00:00Z (string in ISO8601 format is interpreted as UTC time)
+new DateTime('2012-01-01').toUTCString();           // 2012-01-01T00:00:00Z 
+                                                    // (string in ISO8601 format is interpreted as UTC time)
+
 new DateTime('2012-12-31T23:59:59Z').toUTCString(); // 2012-12-31T23:59:59Z
 
 new DateTime('2012').isLeap();                      // true
