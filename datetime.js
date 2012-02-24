@@ -238,7 +238,7 @@ DT.prototype = {
   
   // measurement
   distanceTo: function(dt) { return DT.distance(this, dt); },
-  distanceOfTimeInWordsToNow: function(includeSeconds) { return DT.distanceOfTimeInWords(this, DT.now(),includeSeconds, this.locale); },
+  distanceOfTimeInWordsTo: function(includeSeconds) { return DT.distanceOfTimeInWords(this, DT.now(),includeSeconds, this.locale); },
   
   // get the week of the year (0-53)
   weekOfYear: function() {
