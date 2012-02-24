@@ -11,6 +11,11 @@ datetime.js is a Javascript library that provides a modern way to manipulate dat
 * new DateTime(2012,1,1) will actually set the month as January (where as new Date(2012,1,1) will set it to Feb)
 * UTC's offset is actually counted eastward (Date counts westward, which is backwards).
 
+## Tested Browsers
+* IE6/7/8/9
+* Chrome 18
+* Firefox 10
+* Safari 5
 
 ## Examples
 ``` javascript
@@ -34,7 +39,7 @@ new DateTime(2000,12,31).strftime('%m/%d/%y');      // 12/31/00
 
 
 ## Documentation
-Please check out the the [wiki](/taka-oyama/datetime.js/wiki).
+
 
 
 ## Support
