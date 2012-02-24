@@ -46,7 +46,27 @@ DateTime.distanceOfTimeInWords(d1,d2);              // about 1 month from now
 
 
 ## Documentation
+#### Constructor
+DateTime's constructor will accept the following inputs
+* `DateTime()`: this will create a new instance with current _local time_.
+* `DateTime(Date date)`: this will create a new instance with Date's _local time_.
+* `DateTime(String isoString)`: should be in ISO8601 format and will interpreted as _UTC time_ unless specified.  
+Ex: '2000', '2000-01', 2000-01-01', '2000-01-01T00:00:00Z', '2000-01-01T00:00:00+00:00'  
+    '2000-W01-1', '2000-001'
+* `DateTime(int unixTime)`: number is time from epoch or unix time.
+* `DateTime(int year,int month, int day,...)`:  creates a new instance in _local time_.
 
+#### Class Functions
+`now`: alias to new Date().
+`UTC(int year, int month, int day,...)`: similiar to the constructor but creates instance in _UTC time_.
+`distance(DateTime from, DateTime to)`: returns the distance between the two DateTimes in ms.
+`distanceOfTimeInWords(DateTime from, DateTime to)`: returns the distance between the two in human readable format.
+
+#### Instance Variables
+`locale`: default is 'en'. You can change it to whatever you locale you add to DateTime.i18n.  
+You can set it globally by using ``DateTime.defaultLocale = 'locale defined in DateTime.i18n'``
+
+... still a work in progress...
 
 
 ## Support
