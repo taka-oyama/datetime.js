@@ -33,7 +33,7 @@ new DateTime(2000,12,31).strftime('%m/%d/%y');      // 12/31/00
 
 
 ## Documentation
-Please check out the [the wiki][wiki].
+Please check out the [the wiki]:[wiki].
 
 
 ## Support
