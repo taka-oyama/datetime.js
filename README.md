@@ -1,7 +1,5 @@
 # datetime.js
 
-
-## What is it?
 datetime.js is a Javascript library that provides a more modern date manipulation in place of the conventional Date class.
 DateTime class included in datetime.js can provide the following.
 
