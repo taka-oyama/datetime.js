@@ -208,7 +208,7 @@ The english locale looks like this...
     'over_x_years'       : 'over %{count} year',
     'almost_x_years'     : 'almost %{count} year'
   }
-}
+};
 ```
 just edit the above to create your own locale.  
   
@@ -217,7 +217,7 @@ just edit the above to create your own locale.
 
 #### Applying the locales
 
-To add a locale, set the locale definition object like so... `DateTime.i18n['myLocale'] = { ... }`.  
+To add a locale, set the locale definition object like so... `DateTime.i18n['myLocale'] = { /* locale definitions */ }`.  
 To apply the localization globally, do... `DateTime.defaultLocale = 'myLocale';`.  
 To apply your locale to the DateTime instance, do `myDateTimeInstance.locale = 'mylocale';`.  
   
