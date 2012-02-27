@@ -101,10 +101,10 @@ Returns the current month of the year as an integer. (1-12)
 `day()`  
 Returns the current day of the month as an integer. (1-31)  
   
-`hour()`
+`hour()`  
 Returns the current hour of the day as an integer. (0-23)  
 
-`minute()`
+`minute()`  
 Returns the current minute of the hour as an integer. (0-59)  
   
 `second()`  
@@ -113,7 +113,7 @@ Returns the current second of the minute as an integer. (0-59)
 `millisecond()`  
 Returns the current millisecond of the second as an integer. (0-999)  
   
-`wday()`
+`wday()`  
 Returns the current day of the week represented as integer starting with monday. (1-7)  
   
 `utcOffset()`  
@@ -142,12 +142,12 @@ This function was created based on ruby's implementation of strftime.
 You can heck out ruby's implementation [here](http://ruby-doc.org/core-1.9.3/Time.html#method-i-strftime).  
 There are a few expections though. See below.
 <code>
-    // 'h': won't be implemented. (use %b)
-    // 'N': won't be implemented. (javascript doesn't support micro/nano/pico seconds)
-    // 'U': not implemented.
-    // 'x': won't be implemented. (use %D)
-    // 'X': won't be implemented. (use %T)
-    // 'v': won't be implemented. (VMS?)
+    // 'h': won't be implemented. (use %b)  
+    // 'N': won't be implemented. (javascript doesn't support micro/nano/pico seconds)  
+    // 'U': not implemented.  
+    // 'x': won't be implemented. (use %D)  
+    // 'X': won't be implemented. (use %T)  
+    // 'v': won't be implemented. (VMS?)  
 </code>
 
 `toDate()`  
@@ -166,6 +166,3 @@ returns a string which represents the current UTC date and time in ISO8601 forma
 `toString()`  
 returns a string which represents the current local date and time in ISO 8601 format.  
   
-
-## Licensing
-Please see the file called LICENSE.
