@@ -21,6 +21,7 @@ datetime.js is a Javascript library that provides a modern way to manipulate dat
 
 
 ## Examples
+
 ``` javascript
 DateTime.now();                                     // returns a instance with current local time.
 
@@ -58,15 +59,18 @@ Creates a new instance with current __local time__.
 `DateTime(Date date)`  
 Creates a new instance with Date's __local time__.  
   
-`DateTime(String isoString)`  
+**`DateTime(String isoString)`**  
 Should be in ISO8601 format and will interpreted as __UTC time__ unless specified.  
-    Ex: '2000'
-        '2000-01'
-        '2000-01-01'
-        '2000-01-01T00:00:00Z'
-        '2000-01-01T00:00:00+00:00'
-        '2000-W01-1'
-        '2000-001'
+
+``` javascript
+ Ex: new DateTime('2000')
+     new DateTime('2000-01')
+     new DateTime('2000-01-01')
+     new DateTime('2000-01-01T00:00:00Z')
+     new DateTime('2000-01-01T00:00:00+00:00')
+     new DateTime('2000-W01-1')
+     new DateTime('2000-001')
+```  
   
 `DateTime(int unixTime)`  
 Number is time from epoch or unix time.  
@@ -147,12 +151,15 @@ Returns the day of the year (1-366)
 This function was created based on ruby's implementation of strftime.  
 You can heck out ruby's implementation [here](http://ruby-doc.org/core-1.9.3/Time.html#method-i-strftime).  
 There are a few expections though. See below.
-    // 'h': won't be implemented. (use %b)  
-    // 'N': won't be implemented. (javascript doesn't support micro/nano/pico seconds)  
-    // 'U': not implemented.  
-    // 'x': won't be implemented. (use %D)  
-    // 'X': won't be implemented. (use %T)  
-    // 'v': won't be implemented. (VMS?)  
+
+``` javascript
+ // 'h': won't be implemented. (use %b)  
+ // 'N': won't be implemented. (javascript doesn't support micro/nano/pico seconds)  
+ // 'U': not implemented.  
+ // 'x': won't be implemented. (use %D)  
+ // 'X': won't be implemented. (use %T)  
+ // 'v': won't be implemented. (VMS?)  
+```  
   
 `toDate()`  
 returns DateTime represented in Javascript's Date class.  
