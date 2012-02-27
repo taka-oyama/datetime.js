@@ -53,27 +53,33 @@ DateTime.distanceOfTimeInWords(d1,d2);              // about 1 month from now
 DateTime's constructor will accept the following inputs  
   
 `DateTime()`  
-Creates a new instance with current *local time*.  
+Creates a new instance with current __local time__.  
   
 `DateTime(Date date)`  
-Creates a new instance with Date's *local time*.  
+Creates a new instance with Date's __local time__.  
   
 `DateTime(String isoString)`  
-Should be in ISO8601 format and will interpreted as *UTC time* unless specified.  
-Ex: '2000', '2000-01', 2000-01-01', '2000-01-01T00:00:00Z', '2000-01-01T00:00:00+00:00', '2000-W01-1', '2000-001'  
+Should be in ISO8601 format and will interpreted as __UTC time__ unless specified.  
+    Ex: '2000'
+        '2000-01'
+        '2000-01-01'
+        '2000-01-01T00:00:00Z'
+        '2000-01-01T00:00:00+00:00'
+        '2000-W01-1'
+        '2000-001'
   
 `DateTime(int unixTime)`  
 Number is time from epoch or unix time.  
   
 `DateTime(int year,int month, int day,...)`  
-Creates a new instance in *local time*.  
+Creates a new instance in __local time__.  
 
 #### Class Functions
 `DateTime.now()`  
 Alias to new DateTime().  
   
 `DateTime.UTC(int year, int month, int day,...)`  
-Similiar to the constructor but creates instance in *UTC time*.  
+Similiar to the constructor but creates instance in __UTC time__.  
   
 `DateTime.distance(DateTime from, DateTime to)`  
 Returns the distance between the two DateTimes in milliseconds (to - from).  
@@ -120,13 +126,13 @@ Returns the current day of the week represented as integer starting with monday.
 Returns the time zone offset from UTC in minutes.
   
 `isLeap()`  
-Returns _true_ if the year is a leap year, otherwise return _false_.
+Returns _true_ if the year is a leap year, otherwise return __false__.
   
 `distanceTo(DateTime that)`  
-Returns the distance from _this_ to _that_ in milliseconds.  
+Returns the distance from __this__ to __that__ in milliseconds.  
   
 `distanceOfTimeInWordsTo(DateTime that)`  
-Returns the distance from _this_ to _that_ in human readable format.  
+Returns the distance from __this__ to __that__ in human readable format.  
   
 `weekOfYear()`  
 Returns the week of the year starting with week 0. (0-53)  
