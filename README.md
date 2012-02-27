@@ -1,6 +1,6 @@
 # datetime.js
 
-datetime.js is a Javascript library that provides a modern way to manipulate dates in place of the `Date` class. 
+datetime.js is a Javascript library that provides a modern way to manipulate dates. 
 
 ## List of Main Features
 
@@ -8,7 +8,7 @@ datetime.js is a Javascript library that provides a modern way to manipulate dat
 * stftime from Ruby's Time class
 * distance_of_time_in_words from Ruby on Rails' DateHelper class (can support ~~from now and ~~ ago)
 * internationalization on output
-* new DateTime(2012,1,1) will actually set the month as January (where as new Date(2012,1,1) will set it to Feb)
+* `new DateTime(2012,1,1)` will actually set the month as January (where as `new Date(2012,1,1)` will set it to Feb)
 * UTC's offset is actually counted eastward (Date counts westward, which is backwards).
 
 ## Tested Browsers
