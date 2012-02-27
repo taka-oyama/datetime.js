@@ -17,6 +17,9 @@ datetime.js is a Javascript library that provides a modern way to manipulate dat
 * Firefox 10
 * Safari 5
 
+*The code has only been tested on client side but should support server-side javascript as well.*
+
+
 ## Examples
 ``` javascript
 DateTime.now();                                     // returns a instance with current local time.
@@ -48,29 +51,121 @@ DateTime.distanceOfTimeInWords(d1,d2);              // about 1 month from now
 ## Documentation
 #### Constructor
 DateTime's constructor will accept the following inputs  
-`DateTime()`: this will create a new instance with current _local time_.  
-`DateTime(Date date)`: this will create a new instance with Date's _local time_.  
-`DateTime(String isoString)`: should be in ISO8601 format and will interpreted as _UTC time_ unless specified.  
-Ex: '2000', '2000-01', 2000-01-01', '2000-01-01T00:00:00Z', '2000-01-01T00:00:00+00:00', '2000-W01-1', '2000-001'  
-`DateTime(int unixTime)`: number is time from epoch or unix time.  
-`DateTime(int year,int month, int day,...)`:  creates a new instance in _local time_.  
   
+`DateTime()`  
+Creates a new instance with current *local time*.  
+  
+`DateTime(Date date)`  
+Creates a new instance with Date's *local time*.  
+  
+`DateTime(String isoString)`  
+Should be in ISO8601 format and will interpreted as *UTC time* unless specified.  
+Ex: '2000', '2000-01', 2000-01-01', '2000-01-01T00:00:00Z', '2000-01-01T00:00:00+00:00', '2000-W01-1', '2000-001'  
+  
+`DateTime(int unixTime)`  
+Number is time from epoch or unix time.  
+  
+`DateTime(int year,int month, int day,...)`  
+Creates a new instance in *local time*.  
+
 #### Class Functions
-`now`: alias to new Date().  
-`UTC(int year, int month, int day,...)`: similiar to the constructor but creates instance in _UTC time_.  
-`distance(DateTime from, DateTime to)`: returns the distance between the two DateTimes in ms.  
-`distanceOfTimeInWords(DateTime from, DateTime to)`: returns the distance between the two in human readable format.  
-
+`DateTime.now()`  
+Alias to new DateTime().  
+  
+`DateTime.UTC(int year, int month, int day,...)`  
+Similiar to the constructor but creates instance in *UTC time*.  
+  
+`DateTime.distance(DateTime from, DateTime to)`  
+Returns the distance between the two DateTimes in milliseconds (to - from).  
+  
+`DateTime.distanceOfTimeInWords(DateTime from, DateTime to)`  
+Returns the distance between the two DateTimes in human readable format (to - from).    
+  
 #### Instance Variables  
-`locale`: default is 'en'. You can change it to whatever you locale you add to DateTime.i18n.  
-You can set it globally by using ``DateTime.defaultLocale = 'locale defined in DateTime.i18n'``  
+`locale`  
+Default is 'en'. You can change it to whatever you locale you add to DateTime.i18n. You can set it globally by using ``DateTime.defaultLocale = 'locale defined in DateTime.i18n'``  
+  
+#### Prototype Functions
+`clone()`  
+Create a clone of if DateTime instance.  
+  
+`time()`  
+Returns the time representation in unix time as an integer.  
+  
+`year()`  
+Returns the current year as an integer.  
+  
+`month()`  
+Returns the current month of the year as an integer. (1-12)  
+  
+`day()`  
+Returns the current day of the month as an integer. (1-31)  
+  
+`hour()`
+Returns the current hour of the day as an integer. (0-23)  
 
-... still a work in progress...
+`minute()`
+Returns the current minute of the hour as an integer. (0-59)  
+  
+`second()`  
+Returns the current second of the minute as an integer. (0-59)  
+  
+`millisecond()`  
+Returns the current millisecond of the second as an integer. (0-999)  
+  
+`wday()`
+Returns the current day of the week represented as integer starting with monday. (1-7)  
+  
+`utcOffset()`  
+Returns the time zone offset from UTC in minutes.
+  
+`isLeap()`  
+Returns _true_ if the year is a leap year, otherwise return _false_.
+  
+`distanceTo(DateTime that)`  
+Returns the distance from _this_ to _that_ in milliseconds.  
+  
+`distanceOfTimeInWordsTo(DateTime that)`  
+Returns the distance from _this_ to _that_ in human readable format.  
+  
+`weekOfYear()`  
+Returns the week of the year starting with week 0. (0-53)  
+  
+`yearWeekDay()`  
+Returns an object with properties year, week, and day according to ISO8601 standard.  
+  
+`dayOfYear()`  
+Returns the day of the year (1-366)  
+  
+`strftime(String format)`  
+This function was created based on ruby's implementation of strftime.  
+You can heck out ruby's implementation [here](http://ruby-doc.org/core-1.9.3/Time.html#method-i-strftime).  
+There are a few expections though. See below.
+<code>
+    // 'h': won't be implemented. (use %b)
+    // 'N': won't be implemented. (javascript doesn't support micro/nano/pico seconds)
+    // 'U': not implemented.
+    // 'x': won't be implemented. (use %D)
+    // 'X': won't be implemented. (use %T)
+    // 'v': won't be implemented. (VMS?)
+</code>
 
+`toDate()`  
+returns DateTime represented in Javascript's Date class.  
+  
+`toUTCObject()`  
+returns an object which includes DateTime properties in UTC time.  
+Properties include time, year, month, day, wday, hour, minute, second, millisecond, dayOfYear, and utcOffset.  
+  
+`toObject()`  
+returns an object which includes DateTime properties in local time.  
 
-## Support
-The code has only been tested on client side but should support server-side javascript as well.
-
+`toUTCString()`  
+returns a string which represents the current UTC date and time in ISO8601 format.  
+  
+`toString()`  
+returns a string which represents the current local date and time in ISO 8601 format.  
+  
 
 ## Licensing
 Please see the file called LICENSE.
