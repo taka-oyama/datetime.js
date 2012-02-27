@@ -131,7 +131,7 @@ Returns the time zone offset from UTC in minutes.
   
 `isLeap()`  
 Returns _true_ if the year is a leap year, otherwise return __false__.
-  
+   
 `distanceTo(DateTime that)`  
 Returns the distance from __this__ to __that__ in milliseconds.  
   
@@ -176,4 +176,48 @@ returns a string which represents the current UTC date and time in ISO8601 forma
   
 `toString()`  
 returns a string which represents the current local date and time in ISO 8601 format.  
+
+
+## Localization
+You can localize the strftime output and distance of time in words.  
+
+## Adding the locale definition
+The english locale looks like this...
+
+``` javascript
+{
+  'wdays' : ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+  'months': ['January','February','March','April','May','June','July','August','September','October','November','December'],
+  'abbrWdays' : ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+  'abbrMonths': ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  'distanceWords': {
+    '_filter': function(s, n) { 
+      s+= (Math.abs(n) > 1 ? 's' : '');
+      s = (n <  0) ? s + ' ago'      : s;
+      s = (n >= 0) ? s + ' from now' : s;
+      return s;
+    },
+    'half_a_minute'      : 'half a minute',
+    'less_than_x_seconds': 'less than %{count} second',
+    'x_minutes'          : '%{count} minute',
+    'about_x_hours'      : 'about %{count} hour',
+    'x_days'             : '%{count} day',
+    'about_x_months'     : 'about %{count} month',
+    'x_months'           : '%{count} month',
+    'about_x_years'      : 'about %{count} year',
+    'over_x_years'       : 'over %{count} year',
+    'almost_x_years'     : 'almost %{count} year'
+  }
+}
+```
+just edit the above to create your own locale.  
+  
+*wdays*, *months*, *abbrWdays*, *abbrMonths* are used in `strftime()` and *distanceWords* are used in `distanceOfTimeInWords()`.  
+*_filter* is an optional function you can define to run a filter before the number is inserted into the locale string.  
+
+#### Applying the locales
+
+To add a locale, set the locale definition object like so... `DateTime.i18n['myLocale'] = { ... }`.  
+To apply the localization globally, do... `DateTime.defaultLocale = 'myLocale';`.  
+To apply your locale to the DateTime instance, do `myDateTimeInstance.locale = 'mylocale';`.  
   
