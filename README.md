@@ -181,7 +181,7 @@ returns a string which represents the current local date and time in ISO 8601 fo
 ## Localization
 You can localize the strftime output and distance of time in words.  
 
-## Adding the locale definition
+#### Adding the locale definition
 The english locale looks like this...
 
 ``` javascript
