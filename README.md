@@ -141,15 +141,13 @@ Returns the day of the year (1-366)
 This function was created based on ruby's implementation of strftime.  
 You can heck out ruby's implementation [here](http://ruby-doc.org/core-1.9.3/Time.html#method-i-strftime).  
 There are a few expections though. See below.
-<code>
     // 'h': won't be implemented. (use %b)  
     // 'N': won't be implemented. (javascript doesn't support micro/nano/pico seconds)  
     // 'U': not implemented.  
     // 'x': won't be implemented. (use %D)  
     // 'X': won't be implemented. (use %T)  
     // 'v': won't be implemented. (VMS?)  
-</code>
-
+  
 `toDate()`  
 returns DateTime represented in Javascript's Date class.  
   
