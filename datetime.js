@@ -11,6 +11,7 @@ MIT License
 
 var DT = global.DateTime = function() {
   var a = arguments;
+  this.locale = DT.defaultLocale;
   
   // if given a Date instance, just set it to _d.
   if(a[0] instanceof Date) {
@@ -39,8 +40,8 @@ var DT = global.DateTime = function() {
     
     // ISO 8601 - Date with time and time zone
     else if((/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(Z|([+-]\d{2}(:?\d{2}?)?))$/).test(a[0])) {
-      a[0] = a[0].replace(/(\d{4})-(\d{2})-(\d{2})T/,'$1/$2/$3 ')
-                 .replace(/([+-])(\d{2}):(\d{2})/, ' $1$2$3')
+      a[0] = a[0].replace(/^(\d{4})-(\d{2})-(\d{2})T/,'$1/$2/$3 ')
+                 .replace(/([+-])(\d{2}):(\d{2})$/, ' $1$2$3')
                  .replace(/Z$/,' +0000');
       this._d = new Date(a[0]);
     }
@@ -103,6 +104,8 @@ var DT = global.DateTime = function() {
 };
 
 // Class Variables --------------------------------------------------------------------------------
+DT.defaultLocale = 'en';
+
 DT.i18n = {
   'en': {
     'wdays' : ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
@@ -174,7 +177,7 @@ DT.distanceOfTimeInWords = function(from, to, includeSeconds, locale) {
       props = between(secs,  0,  4) && { template:'less_than_x_seconds', count:  5 } || 
               between(secs,  5,  9) && { template:'less_than_x_seconds', count: 10 } ||
               between(secs, 10, 19) && { template:'less_than_x_seconds', count: 20 } ||
-              between(secs, 20, 29) && { template:'half_a_minute' }                  ||
+              between(secs, 20, 29) && { template:'half_a_minute',       count: 30 } ||
               between(secs, 40, 59) && { template:'less_than_x_seconds', count: 10 } ||
               { template:'x_minutes', count: 1 };
     } else {
@@ -216,8 +219,8 @@ DT.distanceOfTimeInWords = function(from, to, includeSeconds, locale) {
 
 // Instance Functions --------------------------------------------------------------------------------
 DT.prototype = {
-  
-  locale: 'en',
+  // re-initialize the constructor since prototype = {} overwrites it.
+  constructor: DT,
   
   // getters
   clone:      function() { return new DT(this.time());                 },
@@ -234,6 +237,7 @@ DT.prototype = {
   isLeap:     function() { return new DT(this.year(),2,29).day()===29; },
   
   // setters (for internal use only)
+  setLocale:  function(s){ if(DT.i18n[s]) { s = this.locale; }; return this; },
   _setDate:   function(n){ this._d.setDate(n); return this; },
   
   // measurement
